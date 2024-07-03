@@ -26,11 +26,11 @@ const links = [
 export default function NavBar() {
   const pathName = usePathname();
 
-  const { logout } = useAuth();
+  // const { logout } = useAuth();
 
-  const handleLogout = () => {
-    logout();
-  };
+  // const handleLogout = () => {
+  //   logout();
+  // };
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function NavBar() {
       })}
       <button
         className="text-md mt-5 flex h-[48px] grow items-center justify-center gap-4 rounded-md p-3 font-medium text-txt-custom hover:bg-sky-700 hover:text-white md:flex-none md:justify-center md:p-2 md:px-3"
-        onClick={handleLogout}
+        // onClick={handleLogout}
       >
         <ArrowLeftOnRectangleIcon className="w-7" /> Cerrar sesión
       </button>
