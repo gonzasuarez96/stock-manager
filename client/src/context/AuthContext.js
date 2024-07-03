@@ -7,29 +7,29 @@ import Cookies from "universal-cookie";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
   const router = useRouter();
   const cookies = useMemo(() => new Cookies(), []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      try {
-        const token = cookies.get("token");
+  // useEffect(() => {
+  //   const checkAuthentication = async () => {
+  //     try {
+  //       const token = cookies.get("token");
 
-        if (token) {
-          setLoggedIn(true);
-          console.log(token);
-        } else {
-          // setLoggedIn(false);
-          console.log("no existe token");
-          router.push("/login");
-        }
-      } catch (error) {
-        console.error("Error al verificar la autenticación:", error);
-      }
-    };
-    checkAuthentication();
-  }, [router, cookies]);
+  //       if (token) {
+  //         setLoggedIn(true);
+  //         console.log(token);
+  //       } else {
+  //         // setLoggedIn(false);
+  //         console.log("no existe token");
+  //         router.push("/login");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error al verificar la autenticación:", error);
+  //     }
+  //   };
+  //   checkAuthentication();
+  // }, [router, cookies]);
 
   const login = async (userData) => {
     try {
